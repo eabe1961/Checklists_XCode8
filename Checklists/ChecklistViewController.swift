@@ -49,6 +49,25 @@ class ChecklistViewController: UITableViewController {
     super.init(coder: aDecoder)
   }
   
+  // MARK: OUTLETS
+  
+  
+  
+  // MARK: ACTION
+  
+  @IBAction func addItem() {
+    let newRowIndex = items.count
+    let item = ChecklistItem()
+    item.text = "I am a new row"
+    item.checked = false
+    items.append(item)
+    
+    let indexPath = IndexPath(row: newRowIndex, section: 0)
+    let indexPaths = [indexPath]
+    tableView.insertRows(at: indexPaths, with: .automatic)
+  }
+  
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -69,8 +88,8 @@ class ChecklistViewController: UITableViewController {
     
     let item = items[indexPath.row]
     
-    configureTextForCell(cell: cell, withChecklistItem: item)
-    configureCheckmarkForCell(cell: cell, withChecklistItem: item)
+    configureTextForCell(cell, withChecklistItem: item)
+    configureCheckmarkForCell(cell, withChecklistItem: item)
       
       return cell
   }
@@ -82,19 +101,27 @@ class ChecklistViewController: UITableViewController {
       let item = items[indexPath.row]
       item.toggleChecked()
       
-      configureCheckmarkForCell(cell : cell, withChecklistItem : item)
+      configureCheckmarkForCell(cell, withChecklistItem : item)
     }
     
     tableView.deselectRow(at: indexPath, animated: true)
    
   }
   
-  func configureTextForCell(cell : UITableViewCell, withChecklistItem item : ChecklistItem){
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+    items.remove(at: indexPath.row) // GESELECTEERDE RIJ IN DATA VERWIJDEREN
+    
+    let indexPaths = [indexPath]
+    tableView.deleteRows(at: indexPaths, with: .automatic)// GESELECTEERDE RIJ IN TABLEVIEW VERWIJDEREN
+
+  }
+  
+  func configureTextForCell(_ cell : UITableViewCell, withChecklistItem item : ChecklistItem){
     let label = cell.viewWithTag(1000) as! UILabel
     label.text = item.text
   }
   
-  func configureCheckmarkForCell(cell: UITableViewCell, withChecklistItem item : ChecklistItem) {
+  func configureCheckmarkForCell(_ cell: UITableViewCell, withChecklistItem item : ChecklistItem) {
     
     if item.checked {
       

@@ -8,6 +8,9 @@
 
 import Foundation
 
+
+// MARK Datamodel
+
 class ChecklistItem {
   
   var text = ""

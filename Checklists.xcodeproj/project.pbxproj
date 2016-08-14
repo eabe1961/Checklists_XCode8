@@ -101,6 +101,7 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = MK2QK7U7VB;
 						DevelopmentTeamName = "Erwin Abrahamse (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
