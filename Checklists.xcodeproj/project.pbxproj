@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0AD94D1D6897FB00BBE743 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0AD94C1D6897FB00BBE743 /* AddItemViewController.swift */; };
 		CE385C111D479086001AF782 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE385C101D479086001AF782 /* ChecklistItem.swift */; };
 		CE5A08171D45782800A38064 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A08161D45782800A38064 /* AppDelegate.swift */; };
 		CE5A08191D45782800A38064 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5A08181D45782800A38064 /* ChecklistViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0AD94C1D6897FB00BBE743 /* AddItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		CE385C101D479086001AF782 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChecklistItem.swift; path = ../ChecklistItem.swift; sourceTree = "<group>"; };
 		CE5A08131D45782800A38064 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE5A08161D45782800A38064 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				CE5A08161D45782800A38064 /* AppDelegate.swift */,
 				CE5A08181D45782800A38064 /* ChecklistViewController.swift */,
 				CE5A081A1D45782800A38064 /* Main.storyboard */,
+				CE0AD94C1D6897FB00BBE743 /* AddItemViewController.swift */,
 				CE5A081D1D45782800A38064 /* Assets.xcassets */,
 				CE5A081F1D45782800A38064 /* LaunchScreen.storyboard */,
 				CE5A08221D45782800A38064 /* Info.plist */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5A08191D45782800A38064 /* ChecklistViewController.swift in Sources */,
+				CE0AD94D1D6897FB00BBE743 /* AddItemViewController.swift in Sources */,
 				CE385C111D479086001AF782 /* ChecklistItem.swift in Sources */,
 				CE5A08171D45782800A38064 /* AppDelegate.swift in Sources */,
 			);
