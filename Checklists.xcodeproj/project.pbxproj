@@ -62,10 +62,10 @@
 				CE5A08181D45782800A38064 /* ChecklistViewController.swift */,
 				CE5A081A1D45782800A38064 /* Main.storyboard */,
 				CE0AD94C1D6897FB00BBE743 /* AddItemViewController.swift */,
+				CE385C101D479086001AF782 /* ChecklistItem.swift */,
 				CE5A081D1D45782800A38064 /* Assets.xcassets */,
 				CE5A081F1D45782800A38064 /* LaunchScreen.storyboard */,
 				CE5A08221D45782800A38064 /* Info.plist */,
-				CE385C101D479086001AF782 /* ChecklistItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";

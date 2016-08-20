@@ -10,15 +10,25 @@ import UIKit
 
 class AddItemViewController: UITableViewController {
   
+  @IBOutlet weak var addItemTextField: UITextField!
+  
   @IBAction func cancel(){
     dismiss(animated: true, completion: nil)
   }
   
   @IBAction func done(){
+    print("Contents of the text field is: \(addItemTextField.text!)")
     dismiss(animated: true, completion: nil)
   }
 
   override func tableView(_ tableView: UITableView, willSelectRowAt willSelectRowAtIndexPath: IndexPath) -> IndexPath?{
     return nil
   }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear( animated)
+    addItemTextField.becomeFirstResponder()
+    
+  }
 }
+
