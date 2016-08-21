@@ -8,20 +8,29 @@
 
 import UIKit
 
+protocol AddItemViewControllerDelegate: class {
+  func addItemViewControllerDidCancel(_ controller: AddItemViewController)
+  func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem: ChecklistItem)
+}
+
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
   
   
   @IBOutlet weak var addItemTextField: UITextField!
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
   
+  weak var delegate: AddItemViewControllerDelegate?
   
   @IBAction func cancel(){
-    dismiss(animated: true, completion: nil)
+    delegate?.addItemViewControllerDidCancel(self)
   }
   
   @IBAction func done(){
-    print("Contents of the text field is: \(addItemTextField.text!)")
-    dismiss(animated: true, completion: nil)
+    let item = ChecklistItem()
+    item.text = addItemTextField.text!
+    item.checked = false
+    
+    delegate?.addItemViewController(self, didFinishAddingItem: item)
   }
 
   override func tableView(_ tableView: UITableView, willSelectRowAt willSelectRowAtIndexPath: IndexPath) -> IndexPath?{
@@ -33,12 +42,14 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     addItemTextField.becomeFirstResponder()
   }
 
-  func addItemTextFieldIsNotEmptyActivateDoneButton(addItemTextField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+  private func ActivateDoneButton(_ addItemTextField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
   {
     let length = addItemTextField.text!.characters.count - range.length + string.characters.count
     doneBarButton.isEnabled = length > 0
-
-        return true
+    return true
   }
+ 
 }
+
+
 

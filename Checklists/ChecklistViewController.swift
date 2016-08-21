@@ -8,7 +8,22 @@
 
 import UIKit
 
-class ChecklistViewController: UITableViewController {
+class ChecklistViewController: UITableViewController, AddItemViewControllerDelegate {
+  
+  func addItemViewControllerDidCancel(_ controller: AddItemViewController) {
+    dismiss(animated: true, completion: nil)
+  }
+  
+  func addItemViewController(_ controller: AddItemViewController, didFinishAddingItem item: ChecklistItem){
+    
+    let newRowIndex = items.count
+    items.append(item)
+    
+    let indexPath = IndexPath(row: newRowIndex, section: 0)
+    let indexPaths = [indexPath]
+    tableView.insertRows(at: indexPaths, with: .automatic)
+    dismiss(animated: true, completion: nil)
+  }
   
   var items: [ChecklistItem]
   
@@ -116,6 +131,22 @@ class ChecklistViewController: UITableViewController {
 
   }
   
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    // 1
+    if segue.identifier == "addItem" {
+      
+      // 2
+      let navigationController = segue.destination as! UINavigationController
+      
+      // 3
+      let controller = navigationController.topViewController as! AddItemViewController
+      
+      //4
+      controller.delegate = self
+      
+    }
+  }
   func configureTextForCell(_ cell : UITableViewCell, withChecklistItem item : ChecklistItem){
     let label = cell.viewWithTag(1000) as! UILabel
     label.text = item.text
