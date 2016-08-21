@@ -99,6 +99,7 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <action selector="done" destination="lYG-eq-Dee" eventType="editingDidEndOnExit" id="ywj-Yr-sgv"/>
+                                                        <outlet property="delegate" destination="lYG-eq-Dee" id="vfp-6l-oyh"/>
                                                     </connections>
                                                 </textField>
                                             </subviews>
@@ -118,7 +119,7 @@
                                 <action selector="cancel" destination="lYG-eq-Dee" id="vJt-cI-YDI"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8To-7u-gwS">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="8To-7u-gwS">
                             <connections>
                                 <action selector="done" destination="lYG-eq-Dee" id="6rY-jk-qD4"/>
                             </connections>
@@ -126,6 +127,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addItemTextField" destination="1Mf-nE-azV" id="ZWN-UN-pu8"/>
+                        <outlet property="doneBarButton" destination="8To-7u-gwS" id="ll2-h9-glN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwM-1f-Fcg" userLabel="First Responder" sceneMemberID="firstResponder"/>

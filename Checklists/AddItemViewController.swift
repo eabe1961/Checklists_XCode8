@@ -8,9 +8,12 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
+  
   
   @IBOutlet weak var addItemTextField: UITextField!
+  @IBOutlet weak var doneBarButton: UIBarButtonItem!
+  
   
   @IBAction func cancel(){
     dismiss(animated: true, completion: nil)
@@ -28,7 +31,14 @@ class AddItemViewController: UITableViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear( animated)
     addItemTextField.becomeFirstResponder()
-    
+  }
+
+  func addItemTextFieldIsNotEmptyActivateDoneButton(addItemTextField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool
+  {
+    let length = addItemTextField.text!.characters.count - range.length + string.characters.count
+    doneBarButton.isEnabled = length > 0
+
+        return true
   }
 }
 
